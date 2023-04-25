@@ -1,0 +1,31 @@
+<p>hoteldetails works!</p>
+
+<button type="button" class="btn btn-success" (click)="back()">Back</button>
+
+<div class="serach-bar-container">
+    <mat-form-field>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput [(ngModel)]="inputBoxValue">
+     
+    </mat-form-field>
+</div>
+
+
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th *ngFor="let heading of tableHeadings">{{heading}}</th>
+            <th *ngIf="endpoint=='admin'">Delete</th>
+        </tr>
+    </thead>
+        <tr *ngFor="let hotelsrecord of hoteldetails | searchtext:inputBoxValue">
+            <td>{{hotelsrecord.ownerName}}</td>
+            <td>{{hotelsrecord.hotelName}}</td>
+            <td>{{hotelsrecord.hotelAddress}}</td>
+            <td>{{hotelsrecord.hotelMobile}}</td>
+            <td>{{hotelsrecord.hotelMenu}}</td>
+            <td *ngIf="endpoint=='admin'"><i class="material-icons" (click)="deleteapi(hotelsrecord.id)">delete</i></td>
+        </tr>
+    </table>
+</div>

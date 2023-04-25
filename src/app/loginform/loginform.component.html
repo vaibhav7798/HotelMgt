@@ -1,0 +1,39 @@
+<div class="main-container">
+<p>loginform works!</p>
+
+<!-- <form [formGroup]="matform"> -->
+
+
+ <button type="button" class="btn btn-success" (click)="back()">Back</button>
+
+
+    <div class="container">
+    <h1 class="text-center">LogIn</h1>
+    <form class="loginform" [formGroup]="loginform" autocomplete="on">
+    <div>
+    <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input type="text" matInput placeholder="Enter Username" formControlName="fname">
+        <mat-hint>Enter Username</mat-hint>
+        <!-- <mat-error *ngIf="matform.get('fname')?.touched">Name Is Required</mat-error>---->
+    </mat-form-field> 
+</div>
+<br>
+<div class="mb-3">
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="text" matInput placeholder="Enter Password" formControlName="password">
+        <mat-hint>Enter Password</mat-hint>
+        <!-- <mat-error *ngIf="matform.get('lname')?.touched">Last Name Is Required</mat-error> -->
+    </mat-form-field>
+</div>
+
+
+<button [disabled]="loginform.invalid" type="button" class="btn btn-success" (click)="submit()">Login</button>
+<span>Not A Member<a routerLink="/signupform">SignUp</a></span>&nbsp;&nbsp;
+
+</form>
+
+</div>
+
+</div>

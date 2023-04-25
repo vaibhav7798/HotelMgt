@@ -1,0 +1,57 @@
+div.bt button
+{
+    margin: 6px;
+}
+
+.bt
+{
+    position: relative;
+    top: 5px;
+}
+
+// .table-container
+// {
+// background-color: antiquewhite;
+// }
+
+table,td
+{
+    background-color: antiquewhite;
+    border: 2px solid red;
+   padding:8px;
+}
+th
+{
+  color:blue;
+  background-color:blueviolet;
+  padding: 5px;
+  border: 2px solid yellow;
+  
+}
+
+table,
+tr,
+th,
+td
+{
+    border: 1px solid orange;
+    background-color:rgb(135, 196, 222);
+    padding: 6px 6px; 
+    text-align: center;
+     position: relative;
+    //  top: 30px;
+     margin: 50px auto;
+     font-size:large;
+}
+
+.serach-bar-container
+{
+    position: relative;
+    top: 20px;
+  text-align: center;
+}
+
+.cursor_pointer
+{
+    cursor: pointer;
+}

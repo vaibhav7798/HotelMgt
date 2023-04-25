@@ -1,0 +1,66 @@
+<p>hello</p>
+<p>ownerdashboard works!</p>
+<div class="bt">
+<button type="button" class="btn btn-success" (click)="back()">Back</button>
+<button type="button" class="btn btn-success" (click)="hotelregistarion()">Hotel Registartion</button>
+<button type="button" class="btn btn-success" (click)="viewmyhotellist()">View My Hotel List</button>
+<button type="button" class="btn btn-success" (click)="viewallmyhotellist()">view All My Hotel list</button>
+</div>
+<br>
+
+
+<div *ngIf="this.hotelDetailsByOwner.length !=0">
+<div class="serach-bar-container">
+    <mat-form-field>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput [(ngModel)]="inputBoxValue">
+     
+    </mat-form-field>
+</div>
+
+
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th *ngFor="let heading of tableHeadings">{{heading}}</th>
+            
+        </tr>
+    </thead>
+        <tr *ngFor = "let hotelsrecord of this.hotelDetailsByOwner| searchtext:inputBoxValue">
+            <td>{{hotelsrecord.ownerName}}</td>
+            <td>{{hotelsrecord.hotelName}}</td>
+            <td>{{hotelsrecord.hotelAddress}}</td>
+            <td>{{hotelsrecord.hotelMobile}}</td>
+            <td>{{hotelsrecord.hotelMenu}}</td>
+            <td>{{hotelsrecord.roomAvailable}}</td>
+           <td class="cursor_pointer"><i class="material-icons" (click)="deleteapi(hotelsrecord.id)">delete</i></td>
+           <td class="cursor_pointer"><i class="material-icons" (click)="edit(hotelsrecord.id)">edit</i></td>
+        </tr>
+    </table>
+</div>
+</div>
+
+
+<!-- 
+
+<div class="table-container">
+
+    <table>
+        <tr>
+            <th *ngFor = "let heading of tableHeadings">{{heading}}</th>
+            
+        </tr>
+    
+        <tr  *ngFor = "let hotelData of this.hotelDetailsByOwner">
+            <td>{{hotelData.ownerName}}</td>
+            <td>{{hotelData.hotelName}}</td>
+            <td>{{hotelData.hotelAddress}}</td>
+            <td>{{hotelData.hotelMobile}}</td>
+            <td>{{hotelData.hotelMenu}}</td>
+            <td>{{hotelData.roomAvailable}}</td>
+      </tr>
+      </table>
+</div> -->
+
+

@@ -1,0 +1,29 @@
+.signupform{
+    text-align:center;
+    border: 2px solid yellowgreen;
+   border-radius: 10px;
+    padding: 10px;
+    width: 30%;
+    height:fit-content;
+    margin: 20px auto;
+    background-color:darkcyan;
+    
+}
+
+.main-container
+{
+    background-image: url("../../assets/images/signup.jpg");
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+ mat-form-field {
+       padding: 10px;
+      width: 90%;
+ }
+
+ h1
+ {
+    color:gold;
+ }
