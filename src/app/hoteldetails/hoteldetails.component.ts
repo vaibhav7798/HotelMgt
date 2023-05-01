@@ -55,5 +55,9 @@ back()
   }
 }
 
+booknow()
+{
+  this.router.navigateByUrl("/usermodule/booknow");
+}
 
 }

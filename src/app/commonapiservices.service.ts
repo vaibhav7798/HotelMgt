@@ -10,6 +10,9 @@ export class CommonapiservicesService {
   //   userjourney="admin";
     username:any;
     ownername:any;
+    editid!:any;
+    editjourney:boolean=false;
+
   constructor(private http:HttpClient)
    { }
  

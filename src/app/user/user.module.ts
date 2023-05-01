@@ -5,11 +5,13 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user/user.component';
 import { MatButtonModule } from '@angular/material/button';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
+import { BooknowComponent } from './booknow/booknow.component';
 
 @NgModule({
   declarations: [
     UserComponent,
-    UserdashboardComponent
+    UserdashboardComponent,
+    BooknowComponent
   ],
   imports: [
     CommonModule,

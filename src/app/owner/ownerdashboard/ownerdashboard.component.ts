@@ -16,7 +16,6 @@ tableHeadings =  ["Owner Name","Hotel Name","hotelAddress",
   inputBoxValue:any;
   hotelEndPoint='hotelDetails';
 
-
   constructor(private router:Router,private commonapiservicesService:CommonapiservicesService){}
 
 ngOnInit()
@@ -49,7 +48,7 @@ async viewmyhotellist()
       }
     });
     console.log("hotel details by owner name:",this.hotelDetailsByOwner);
-    if(this.hotelDetailsByOwner<=0)
+    if(this.hotelDetailsByOwner.length==0)
     {
       alert('hotel not found');
     }
@@ -76,6 +75,8 @@ async deleteapi(id:number)
 
 edit(id:number)
 {
-
+  this.commonapiservicesService.editid=id;
+  this.commonapiservicesService.editjourney=true;
+  this.router.navigateByUrl("ownermodule/hotelregistarion");
 }
 }
