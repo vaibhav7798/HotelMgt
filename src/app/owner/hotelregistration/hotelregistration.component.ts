@@ -24,19 +24,28 @@ export class HotelregistrationComponent {
    {
     this.iseditjourney=this.commonapiservicesService.editjourney;
     this.editid=this.commonapiservicesService.editid;
-      if(this.iseditjourney)
+    this.hoteldetailsbyid=this.commonapiservicesService.hotelDetailsById;
+          
+    if(this.iseditjourney)
       {
-        this.gethoteldetailsbyID();
-      }
+        console.log('hoteldetailsbyid',this.hoteldetailsbyid);
+        if(this.hoteldetailsbyid)
+        { this.hotelRegistration();}
+       
+       }
+       else
+       {
+        this.hotelRegistration();
+       }
     
-    this.hotelRegistration();
    }
 
    hotelRegistration()
    {
     this.hotelRegistrationForm=this.fb.group({
-      hotelname:[this.hoteldetailsbyid ? this.hoteldetailsbyid.hotelname:''],
       ownername:[this.hoteldetailsbyid ? this.hoteldetailsbyid.ownername:''],
+      hotelname:[this.hoteldetailsbyid ? this.hoteldetailsbyid.hotelname:''],
+     
       hoteladdress:[this.hoteldetailsbyid ? this.hoteldetailsbyid.hoteladdress:''],
       hotelMobile:[this.hoteldetailsbyid ? this.hoteldetailsbyid.hotelMobile:''],
       city:[''],
@@ -50,18 +59,24 @@ export class HotelregistrationComponent {
 submit()
 {
   console.log("hotel registartion:",this.hotelRegistrationForm.value);
+  if(this.iseditjourney)
+   {
+     //put/patch api code
+   }
+    else
+  {
+   
+    this.commonapiservicesService.postapicall("hotelDetails",this.hotelRegistrationForm.value).subscribe(Response=>{})
+    this.hotelRegistrationForm.reset();
+    alert("hotel record has been successfully saved!");
   
-   this.commonapiservicesService.postapicall("hotelDetails",this.hotelRegistrationForm.value).subscribe(Response=>{})
-  this.hotelRegistrationForm.reset();
-  alert("hotel record has been successfully saved!");
-
+    }
+  
   this.router.navigateByUrl("/ownermodule/ownerdashboard");
 }
 
-async gethoteldetailsbyID()
-{
-  this.hoteldetailsbyid=await this.commonapiservicesService.getapicall("hotelDetails",this.editid).toPromise();  
- console.log('hoteldetailsbyid',this.hoteldetailsbyid);
- 
-}
+// async gethoteldetailsbyID()
+// {
+//   this.hoteldetailsbyid=await this.commonapiservicesService.getapicall("hotelDetails",this.editid).toPromise();  
+// }
 }

@@ -12,6 +12,7 @@ export class CommonapiservicesService {
     ownername:any;
     editid!:any;
     editjourney:boolean=false;
+  hotelDetailsById: any;
 
   constructor(private http:HttpClient)
    { }
